@@ -11,17 +11,25 @@ on:
         description: 'Environment to deploy to'
         required: false
         type: string
+    outputs:
+      result:
+        description: 'Status of the deployment'
+        value: ${{ jobs.deploy.outputs.outcome }}
 jobs:
   deploy:
+    outputs:
+      outcome: ${{ steps.set-result.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/download-artifact@v4
         with:
           name: ${{ inputs.artifact_name }}
-
       - name: Show files
         run: ls -la
       - name: Output Info
         run: echo "Deploying & uploading..."
+      - name: Set result output
+        id: set-result
+        run: echo "step-result=success" >> $GITHUB_OUTPUT
 
