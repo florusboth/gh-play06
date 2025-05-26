@@ -1,15 +1,16 @@
 name: Reusable deploy
-on: workflow_call:
-  inputs:
-    artifact_name:
-      description: 'Name of the artifact to deploy'
-      required: false
-      default: dist
-      type: string
-    deploy_env:
-      description: 'Environment to deploy to'
-      required: false
-      type: string
+on: 
+  workflow_call:
+    inputs:
+      artifact_name:
+        description: 'Name of the artifact to deploy'
+        required: false
+        default: dist
+        type: string
+      deploy_env:
+        description: 'Environment to deploy to'
+        required: false
+        type: string
 jobs:
   deploy:
     runs-on: ubuntu-latest
