@@ -11,6 +11,9 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.29.0",
+    "globals": "^16.2.0",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
